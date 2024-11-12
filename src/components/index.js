@@ -1,15 +1,9 @@
 import '../pages/index.css';
-import {
-  initialCards,
-  addCard,
-  deleteCard,
-  setLike,
-  viewCard,
-} from './card.js';
+import { addCard, deleteCard, setLike } from './card.js';
+import { initialCards } from './cards.js';
 import { openModal, closeModal } from './modal.js';
 
 // DOM узлы
-const cardTemplate = document.querySelector('#card-template').content;
 const placesList = document.querySelector('.places__list');
 const popupFormEdit = document.forms['edit-profile'];
 const popupFormAdd = document.forms['new-place'];
@@ -19,6 +13,7 @@ const profileTitle = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileAddButton = document.querySelector('.profile__add-button');
+const popups = document.querySelectorAll('.popup');
 
 //Функция слушателя открытие модалки редактировования
 function openModalEdit() {
@@ -42,6 +37,15 @@ function openModalImage() {
   const popupContainerImage = document.querySelector('.popup_type_image');
 
   openModal(popupContainerImage);
+}
+
+// Функция просмотра изображения карточки
+function viewCard(cardLinkValue, cardTitleValue) {
+  document.querySelector('.popup__caption').textContent = cardTitleValue;
+  document.querySelector('.popup__image').alt = cardTitleValue;
+  document.querySelector('.popup__image').src = cardLinkValue;
+
+  openModalImage();
 }
 
 // Функция слушателя отправки формы редактирования профиля
@@ -68,19 +72,23 @@ function handleFormSubmitAdd(evt) {
     viewCard
   );
 
-  initialCards.unshift({ name: placeNameValue, link: placeLinkValue });
   placesList.prepend(card);
   popupFormAdd.reset();
   closeModal();
 }
 
-//TODO: Слушатели
+// Слушатели
 popupFormEdit.addEventListener('submit', handleFormSubmitEdit);
 popupFormAdd.addEventListener('submit', handleFormSubmitAdd);
 profileEditButton.addEventListener('click', openModalEdit);
 profileAddButton.addEventListener('click', openModalNewCard);
 
-// TODO:Вывести карточки на страницу
+// Каждому модальному окну добавляется класс анимации
+popups.forEach((popup) => {
+  popup.classList.add('popup_is-animated');
+});
+
+// Вывести карточки на страницу
 initialCards.forEach((element) => {
   const card = addCard(
     element.link,
@@ -91,5 +99,3 @@ initialCards.forEach((element) => {
   );
   placesList.append(card);
 });
-
-export { cardTemplate, openModalImage };

@@ -7,7 +7,6 @@ function openModal(container) {
   container.addEventListener('click', closeModalOverlay);
 
   container.classList.add('popup_is-opened');
-  container.classList.add('popup_is-animated');
 }
 
 // Функция закрытия модального окна
@@ -37,4 +36,4 @@ function closeModalOverlay(evt) {
     closeModal();
   }
 }
-export { openModal, closeModal, closeModalOverlay };
+export { openModal, closeModal };
