@@ -34,6 +34,6 @@
 
 ## Макеты:
 
-[Макет 1]([https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1](https://www.figma.com/design/PSdQFRHoxXJFs2FH8IXViF/JavaScript.-Sprint-9?node-id=109-315&t=8Uj1AzPnvewqz7QT-1))
+[Макет 1](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1](https://www.figma.com/design/PSdQFRHoxXJFs2FH8IXViF/JavaScript.-Sprint-9?node-id=109-315&t=8Uj1AzPnvewqz7QT-1))
 
-[Макет 2]([https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1](https://www.figma.com/design/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0-1&t=gOiszlogAbPmEkTF-1))
+[Макет 2](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1](https://www.figma.com/design/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0-1&t=gOiszlogAbPmEkTF-1))
