@@ -36,4 +36,5 @@ function closeModalOverlay(evt) {
     closeModal();
   }
 }
+
 export { openModal, closeModal };
