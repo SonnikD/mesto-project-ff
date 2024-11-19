@@ -24,64 +24,66 @@ const profileAddButton = document.querySelector('.profile__add-button');
 const popups = document.querySelectorAll('.popup');
 const profileImage = document.querySelector('.profile__image');
 
+const validationConfigEdit = {
+  formSelector: '.popup_type_edit .popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
+};
+
+const validationConfigNewCard = {
+  formSelector: '.popup_type_new-card .popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
+};
+
+const validationConfigUpdateProfile = {
+  formSelector: '.popup_type_update-profile .popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
+};
+
 //Функция слушателя открытие модалки редактировования
 function openModalEdit() {
   const popupContainerEdit = document.querySelector('.popup_type_edit');
-
-  const validationConfig = {
-    formSelector: '.popup_type_edit .popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible',
-  };
-  const formElement = document.querySelector(validationConfig.formSelector);
+  const formElement = document.querySelector(validationConfigEdit.formSelector);
 
   openModal(popupContainerEdit);
-  enableValidation(validationConfig);
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
 
-  clearValidation(formElement, validationConfig);
+  clearValidation(formElement, validationConfigEdit);
 }
 
 // Функция открытия модалки новой карточки
 function openModalNewCard() {
   const popupContainerNewCard = document.querySelector('.popup_type_new-card');
-  const validationConfig = {
-    formSelector: '.popup_type_new-card .popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible',
-  };
-  const formElement = document.querySelector(validationConfig.formSelector);
+  const formElement = document.querySelector(
+    validationConfigNewCard.formSelector
+  );
 
   openModal(popupContainerNewCard);
-  enableValidation(validationConfig);
-  clearValidation(formElement, validationConfig);
   formElement.reset();
+  clearValidation(formElement, validationConfigNewCard);
 }
 
 function openModalUpdateProfile() {
   const popupContainer = document.querySelector('.popup_type_update-profile');
-  const validationConfig = {
-    formSelector: '.popup_type_update-profile .popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible',
-  };
-
-  const formElement = document.querySelector(validationConfig.formSelector);
+  const formElement = document.querySelector(
+    validationConfigUpdateProfile.formSelector
+  );
 
   openModal(popupContainer);
-  enableValidation(validationConfig);
-  clearValidation(formElement, validationConfig);
   formElement.reset();
+  clearValidation(formElement, validationConfigUpdateProfile);
 }
 
 // Функция открытия модалки изображения
@@ -206,6 +208,10 @@ function renderCards(dataCards, userId) {
     placesList.append(card);
   });
 }
+
+enableValidation(validationConfigEdit);
+enableValidation(validationConfigNewCard);
+enableValidation(validationConfigUpdateProfile);
 
 // Слушатели
 popupFormEdit.addEventListener('submit', handleFormSubmitEdit);

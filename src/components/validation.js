@@ -16,6 +16,7 @@ function hideInputError(formElement, inputElement, obj) {
   inputElement.classList.remove(obj.inputErrorClass);
   errorElement.classList.remove(obj.errorClass);
   errorElement.textContent = '';
+  inputElement.setCustomValidity('');
 }
 
 // Функция для проверки валидации на поле ввода
